@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Цифровой помощник МБУ «ФСК»</title>
+  <script src="https://max.ru"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f4f5f7;
+      color: #1c1d1f;
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px 20px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    .logo {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 18px auto;
+      display: block;
+      object-fit: contain;
+    }
+    h1 {
+      font-size: 19px;
+      line-height: 1.35;
+      margin-bottom: 14px;
+      color: #0b3b75;
+      text-align: center;
+    }
+    .content {
+      font-size: 15px;
+      line-height: 1.45;
+      color: #333333;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .content p {
+      margin-bottom: 10px;
+    }
+    .content ul {
+      margin: 0 0 12px 20px;
+    }
+    .content li {
+      margin-bottom: 6px;
+    }
+    .cta {
+      font-weight: 600;
+      color: #1c1d1f;
+      margin-bottom: 0 !important;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 10px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: opacity 0.2s;
+    }
+    .btn:active { opacity: 0.8; }
+    .btn-primary {
+      background-color: #0077ff;
+      color: #ffffff;
+    }
+    .btn-secondary {
+      background-color: #0077ff;
+      color: #ffffff;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <!-- Логотип (файл logo.png должен лежать рядом с index.html) -->
+    <img class="logo" src="logo.jpg" alt="МБУ ФСК">
+
+    <!-- Приветственный текст -->
+    <h1>Добро пожаловать в цифровой помощник МБУ "ФСК" 👋🏻</h1>
+
+    <div class="content">
+      <p>Этот бот поможет вам:</p>
+      <ul>
+        <li>узнать актуальное расписание занятий МБУ "ФСК"</li>
+        <li>получить информацию о выполнении нормативов комплекса ГТО</li>
+      </ul>
+      <p>Мы будем постепенно улучшать его функционал, чтобы он был вам полезен ✅</p>
+      <p class="cta">Выберите интересующий Вас раздел👇🏻 </p>
+    </div>
+
+    <!-- Две кнопки на страницы сайта muzkult.ru -->
+    <a class="btn btn-primary" href="https://muzkult.ru" target="_blank" rel="noopener noreferrer" onclick="return openUniversal(event, this.href)">
+      Расписание занятий МБУ «ФСК»
+    </a>
+    <a class="btn btn-secondary" href="https://muzkult.ru" target="_blank" rel="noopener noreferrer" onclick="return openUniversal(event, this.href)">
+      Нормативы комплекса ГТО
+    </a>
+  </div>
+
+  <script>
+    if (window.WebApp) {
+      window.WebApp.ready();
+    }
+
+    function openUniversal(event, url) {
+      var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      if (isMobile && window.WebApp && window.WebApp.openLink) {
+        event.preventDefault();
+        window.WebApp.openLink(url);
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+
+</body>
+</html>
